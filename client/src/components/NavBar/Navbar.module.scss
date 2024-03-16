@@ -1,0 +1,196 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+
+header {
+    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+
+    .navbar {
+        display: flex;
+        position: fixed;
+        justify-content: space-between;
+        padding: 0;
+        height: 100px;
+        box-sizing: border-box;
+        align-items: center;
+        background-color: $grayBackground;
+        top: 0;
+        z-index: 100;
+        width: 100%;
+        padding: 0 40px;
+        user-select: none;
+        box-shadow: 1px 1px 3px rgba($color: #000000, $alpha: 0.05);
+
+        @include mixinBreakpoints(xxl) {
+            padding: 0 30px;
+        }
+
+        @include mixinBreakpoints(lgx) {
+            padding: 0 20px;
+        }
+
+        .navbarLogo {
+            display: flex;
+            align-items: center;
+
+            img {
+                height: 40px;
+    
+                @include mixinBreakpoints(xl){
+                    height: 35px;
+                }
+    
+                @include mixinBreakpoints(xs){
+                    height: 30px;
+                }
+            }
+        }
+
+        .navbarMenu {
+            display: flex;
+            align-items: center;
+            column-gap: 30px;
+
+            @include mixinBreakpoints(xs){
+                column-gap: 20px;
+            }
+
+            .navbarMenuTitre, .navbarMenuTitre span {
+                font-size: 17px;
+                @include Poppins();
+                font-weight: 600;
+                color: $blackText;
+                @include transition(0.3s ease-in-out);
+
+                &:hover, &.current{
+                    color: $orangeHoll;
+
+                    span {
+                        color: $orangeHoll;
+                    }
+                }
+
+                > span {
+                    display: block;
+                    @include mixinBreakpoints(xs){
+                        display: none;
+                    }
+                }
+
+                > svg{
+                    display: none;
+
+                    @include mixinBreakpoints(xs){
+                        display: block;
+                        font-size: 27px;
+                        stroke-width: 2px;
+                        @include transition(0.3s ease-in-out);
+
+                        &:hover{
+                            color: $orangeHoll;
+                        }
+                    }
+                }
+            }
+
+            .navbarMenuProfil {
+                display: flex;
+                align-items: center;
+
+                &:hover, &.current{
+                    svg{
+                        color: $orangeHoll;
+                    }
+                }
+
+                svg {
+                    font-size: 27px;
+                    stroke-width: 2px;
+                    cursor: pointer;
+                    @include transition(0.3s ease-in-out);
+                }
+            }
+
+            .containerBtnAccount{
+
+
+                > button:first-child{
+                    @include mixinBreakpoints(xs){
+                        display: none;
+                    }
+                }
+
+                .iconAccount{
+                    display: none;
+                    cursor: pointer;
+                    
+                    @include mixinBreakpoints(xs){
+                        display: flex;
+                        align-items: center;
+                        background-color: transparent;
+    
+                        svg{
+                            font-size: 27px;
+                            stroke-width: 2px;
+                            @include transition(0.3s ease-in-out);
+    
+                            &:hover{
+                                color: $orangeHoll;
+                            }
+                        }
+                    }
+    
+                    &:hover{
+                        svg{
+                            color: $orangeHoll;
+                        }
+                    }
+                }
+            }
+
+            .navbarMenuBasket {
+                display: flex;
+                align-items: center;
+
+                &.current {
+                    color: $orangeHoll;
+                }
+                
+                svg{
+                    font-size: 30px;
+                    stroke-width: 0.1px;
+                    transition: 0.3s ease-in-out;
+
+                    &:hover{
+                        color: $orangeHoll;
+                    }
+                }
+            }
+        }
+
+        &.marketplace {
+            background-color: $grayPanel;
+            margin: 10px 20px 0 20px;
+            width: calc(100% - 40px);
+            position: static;
+            width: auto;
+            border-radius: 15px;
+            height: 80px;
+            box-shadow: 1px 1px 10px rgba($color: #000000, $alpha: 0.05);
+
+            @include mixinBreakpoints(xs){
+                margin: 0;
+                width: 100%;
+                border-radius: 0;
+                position: fixed;
+            }
+        }
+    }
+    &.marketplace {
+        position: inherit;
+    }
+}

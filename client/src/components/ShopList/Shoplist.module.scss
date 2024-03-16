@@ -1,0 +1,238 @@
+@import "../../scss/mixins.scss";
+@import "../../scss/colors.scss";
+
+.shopList {
+    background-color: $grayPanel;
+
+    .wrapperCarousel{
+        padding: 0 40px;
+
+        @include mixinBreakpoints(xs){
+            padding: 0 10px;
+        }
+
+        > div > div{
+            padding: 0 !important;
+          }
+    }
+
+    .paging {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        column-gap: 5px;
+        row-gap: 5px;
+
+        @include mixinBreakpoints(xxLargeScreen){
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        @include mixinBreakpoints(xxxl){
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @include mixinBreakpoints(xxl){
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include mixinBreakpoints(sm){
+            grid-template-columns: 1fr;
+        }
+    }
+
+    h2{
+        font-size: 20px;
+        font-weight: 700;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        user-select: none;
+
+        &.h2Paging{
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        &.titleH2{
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+    }
+
+    .title{
+        @include Playfair();
+        font-size: 30px;
+
+        @include mixinBreakpoints(xxl){
+            font-size: 28px;
+        }
+
+        @include mixinBreakpoints(lgx){
+            font-size: 26px;
+        }
+    }
+
+    .wrapperHeaderMarketplace{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+
+        @include mixinBreakpoints(xs){
+            flex-direction: column;
+            row-gap: 10px;
+        }
+
+        .sortBy{
+            display: flex;
+            transition: 0.3s ease-in-out;
+            background-color: $grayPanel;
+            position: relative;
+            width: fit-content;
+
+            @include mixinBreakpoints(xs){
+                width: 100%;
+            }
+    
+            .crossBtn{
+                margin-left: 10px;
+                background-color: transparent;
+                display: flex;
+                align-items: center;
+    
+                .cross{
+                    font-size: 20px;
+                    color: $grayText;
+                    cursor: pointer;
+                    @include transition(0.3s ease-in-out);
+    
+                    &:hover{
+                        color: $orangeHoll;
+                    }
+                }
+        
+            }
+    
+            &.open{
+    
+                .sortByInit{
+                    background-color: $grayPanel;
+                    border-radius: 10px 10px 0 0;
+                }
+            }
+    
+            .sortByInit{
+                background-color: transparent;
+                display: flex;
+                justify-content: space-between;
+                width: 170px;
+                padding: 10px 12px;
+                border-radius: 30px;
+                z-index: 2;
+                cursor: pointer;
+                border: 1px solid $blackText;
+
+                @include mixinBreakpoints(xs){
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+    
+                &:hover{
+                    color: $orangeHoll;
+                }
+    
+                span{
+                    transition: 0.3s ease-in-out;
+                    font-weight: 500;
+                }
+    
+                svg{
+                    font-size: 20px;
+                    transition: 0.3s ease-in-out;
+    
+                    &:hover{
+                        color: $orangeHoll;
+                    }
+    
+                    &.opened{
+                        animation: rotate linear 0.3s;
+                        transform: rotate(180deg);
+    
+                        @include keyframes(rotate){
+                            0%{
+                                transform: rotate(0deg);
+                            }100%{
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+                }
+            }
+    
+            .choices{
+                display: flex;
+                flex-direction: column;
+                width: 168px;
+                animation: translate linear 0.3s ;
+                position: absolute;
+                top: 41px;
+                left: 0;
+                z-index: 1;
+                border: 1px solid black;
+                border-top: 0px;
+                background-color: $grayPanel;
+                border-radius: 0 0 10px 10px;
+                overflow: hidden;
+
+                @include mixinBreakpoints(xs){
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+    
+                @keyframes translate {
+                    0%{
+                        transform: translateY(-30%);
+                        opacity: 0;
+                    }100%{
+                        transform: translateY(0);
+                        opacity: 1;
+                    }
+                }
+    
+                .choice{
+                    background-color: transparent;
+                    display: flex;
+                    justify-content: flex-start;
+                    padding: 10px 12px;
+                    transition: 0.3s ease-in-out;
+    
+                    &:hover{
+                        color: $orangeHoll;
+                        cursor: pointer;
+                        background-color: $grayBackground;
+                    }
+    
+                    svg{
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    .gradient{
+        color: transparent;
+        font-size: 22px;
+        font-weight: 700;
+        fill: transparent;
+    }
+    
+    .gradientOrange {
+        background: linear-gradient(to right, #EE6603, #FFAA6B);
+        background-clip: text;
+        -webkit-background-clip: text;
+    }
+    
+    .gradientBlue {
+        background: linear-gradient(to right, #00364D, #008698);
+        background-clip: text;
+        -webkit-background-clip: text;
+    }
+}

@@ -1,0 +1,115 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+
+.MenuAdminArtisan {
+    display: flex;
+    flex-grow: 1;
+
+    &.PanelOpen {
+        width: 50%;
+    }
+
+    @include mixinBreakpoints(lgx) {
+        &.PanelOpen {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            z-index: 15;
+        }
+    }
+}
+
+.MenuAdminArtisanTogglePanelButton {
+    display: none;
+
+    @include mixinBreakpoints(lgx) {
+        display: block;
+        background-color: transparent;
+        margin: 0 5px;
+
+        svg {
+            height: 30px;
+            width: 30px;
+            stroke-width: 1.5px;
+            background-color: $blackText;
+            color: #fff;
+            border-radius: 10px;
+            padding: 10px;
+
+            @include mixinBreakpoints(xs) {
+                height: 15px;
+                width: 15px;
+            }
+        }
+
+        &.PanelOpen {
+            svg {
+                transform: rotate(180deg) translateX(-50%);
+            }
+        }
+    }
+
+}
+
+#MenuAdminArtisanPanel {
+    height: 100%;
+    width: 100%;
+    background-color: $grayPanel;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.05);
+    // min-height: 100vh;
+
+    .MenuAdminArtisanChoice {
+        display: flex;
+        justify-content: space-evenly;
+        border-bottom: solid $grayLight 1px;
+
+        li {
+            padding: 0 5px;
+
+
+            button {
+                padding: 15px 0;
+                cursor: pointer;
+                background: transparent;
+                @include transition(0.3s ease-in-out);
+
+                &.active,
+                &:hover {
+                    position: relative;
+
+                    &::after {
+                        @include transition(0.3s ease-in-out);
+                        content: '';
+                        border: solid 1px $orangeHoll;
+                        width: 100%;
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+.emptyStatePanel {
+    padding: 100px 30px 30px 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+
+    p {
+        text-align: center;
+        color: $grayTitle;
+    }
+
+    svg {
+        font-size: 100px;
+        color: $grayLight;
+    }
+}

@@ -1,0 +1,48 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+
+#products {
+    margin-top: 30px;
+
+    .productHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .productAdd {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: $orangeHoll;
+            padding: 10px 15px;
+            color: $whiteElement;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s ease-in-out;
+
+            &:hover {
+                background-color: $orangeHollHover;
+            }
+        }
+    }
+}
+
+/*
+.checkbox{
+    border: 1px solid $blackText;
+    background: transparent;
+    border-radius: 3px;
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg{
+        font-size: 15px;
+        stroke-width: 2.5px;
+        color: $blackText;
+    }
+}
+*/

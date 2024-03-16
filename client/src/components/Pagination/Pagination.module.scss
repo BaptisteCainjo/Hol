@@ -1,0 +1,77 @@
+@import "../../scss/colors";
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+
+  .ctn {
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 20px;
+    align-items: center;
+    width: 100%;
+
+    li, a , svg{
+      height: 100%;
+    }
+
+    li.previous{
+      display: flex;
+      align-items: center;
+    }
+
+    .svgItems{
+      margin-top: 10px;
+      height: fit-content;
+      font-size: 20px;
+    }
+
+    .itemPage {
+      .link {
+        height: 40px;
+        font-weight: 500;
+        -webkit-user-select: none;
+        user-select: none;
+        font-size: 20px;
+        border: none;
+        min-width: 10px;
+        cursor: pointer;
+
+        &:hover {
+          color: $orangeHoll;
+        }
+
+        &[aria-current="page"] {
+          color: $orangeHoll;
+        }
+      }
+    }
+
+    .svgItems {
+      cursor: pointer;
+      height: 50px;
+      width: 40px;
+      transition: .3s ease-in-out;
+
+      &:hover {
+        color:  $orangeHoll;
+      }
+
+      &.rotate {
+        transform: rotate(180deg);
+      }
+    }
+
+    .disable, [aria-disabled="true"] {
+      cursor: not-allowed;
+      color: $orangeHoll;
+      opacity: .5;
+
+      svg {
+        cursor: not-allowed;
+      }
+    }
+  }
+}

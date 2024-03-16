@@ -1,0 +1,246 @@
+@import '../../../scss/colors';
+@import '../../../scss/mixins';
+
+.Display {
+    padding: 20px 20px 20px 40px;
+    box-sizing: border-box;
+    width: 95%;
+
+    .DisplayInfos {
+
+        h2 {
+            display: flex;
+            align-items: center;
+            column-gap: 10px;
+            font-size: 24px;
+
+            .titleGradient {
+                background: linear-gradient(to right, #EE6603, #FFAA6B);
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+                font-weight: 700;
+                fill: transparent;
+            }
+
+            &::after {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 1px;
+                background-color: $grayTable;
+            }
+
+            @include mixinBreakpoints(xs) {
+                flex-wrap: wrap;
+                font-size: 20px;
+
+
+                &::after {
+                    display: none;
+                }
+
+            }
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+
+            label {
+                margin: 5px 0;
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                input {
+                    padding: 10px;
+                    border-radius: 5px;
+                }
+            }
+        }
+
+    }
+
+    .DisplayReservation {
+
+        h2 {
+            display: flex;
+            align-items: center;
+            column-gap: 10px;
+            font-size: 24px;
+
+            .titleGradient {
+                background: linear-gradient(to right, #EE6603, #FFAA6B);
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+                font-weight: 700;
+                fill: transparent;
+            }
+
+            &::after {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 1px;
+                background-color: $grayTable;
+            }
+
+            @include mixinBreakpoints(xs) {
+                flex-wrap: wrap;
+                font-size: 20px;
+
+
+                &::after {
+                    display: none;
+                }
+
+            }
+        }
+
+        .reservationsGoing {
+            .reservationsGoingTitle {
+                font-size: 20px;
+                margin-top: 20px;
+
+                @include mixinBreakpoints(xs) {
+                    font-size: 16px;
+                }
+            }
+
+            .reservationsGoingListe {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                column-gap: 20px;
+
+                @include mixinBreakpoints(xxxl) {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                @include mixinBreakpoints(lg) {
+                    grid-template-columns: repeat(1, 1fr);
+                }
+
+                .reservationsGoingUneReservation {
+                    width: auto;
+                    margin-top: 20px;
+                    background-color: $whiteElement;
+                    border-radius: 10px;
+
+
+                    .reservationsBarTop {
+                        display: flex;
+                        column-gap: 30px;
+                        border-bottom: solid 1px $grayLight;
+                        padding: 10px 20px;
+
+                        .reservationsInfos {
+                            color: $grayText;
+                            font-size: 14px;
+
+                            @include mixinBreakpoints(xs) {
+                                font-size: 12px;
+                            }
+
+                            .reservationsInfosTitre {
+                                text-transform: uppercase;
+                            }
+
+                            .reservationsInfosDonnees {
+                                color: $orangeHoll;
+                                font-weight: bold;
+                            }
+                        }
+
+                        @include mixinBreakpoints(xSpeS) {
+                            flex-direction: column;
+                            gap: 5px;
+                        }
+                    }
+
+                    .reservationsProduct {
+                        display: flex;
+                        padding: 10px 20px;
+                        column-gap: 20px;
+                        align-items: center;
+
+
+                        img {
+                            width: 120px;
+                            height: 80px;
+                            object-fit: cover;
+                            border-radius: 8px;
+                        }
+
+                        .reservationsProductTitle {
+                            font-size: 15px;
+
+                            .reservationsProductTitleProduct {
+                                font-weight: bold;
+                            }
+
+                            .reservationsProductTitleShop {
+                                color: $grayText;
+                                font-size: 13px;
+                            }
+                        }
+
+                        .reservationsProductPrice {
+                            font-weight: bold;
+                            font-size: 15px;
+                            margin-left: 20px;
+                        }
+
+                        @include mixinBreakpoints(xSpeS) {
+                            align-items: flex-start;
+                            flex-direction: column;
+                            gap: 5px;
+
+                            .reservationsProductPrice {
+                                margin-left: 0;
+                            }
+                        }
+                    }
+
+                    .reservationsBarBottom {
+                        padding: 10px 20px;
+                        text-align: end;
+                        font-size: 15px;
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+                        justify-content: end;
+
+                        .cancelReservationButton {
+                            background-color: transparent;
+                            cursor: pointer;
+
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+
+                        .reservationsBarBottomCode {
+                            background-color: $orangeHoll;
+                            padding: 8px 15px;
+                            display: inline-block;
+                            border-radius: 8px;
+                            color: $whiteElement;
+                        }
+
+                        @include mixinBreakpoints(xSpeS) {
+                            text-align: start;
+                        }
+                    }
+                }
+            }
+
+
+            hr {
+                width: 100%;
+                border: #EE6603;
+            }
+        }
+    }
+}

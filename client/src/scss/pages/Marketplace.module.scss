@@ -1,0 +1,266 @@
+@import "../colors";
+@import "../mixins";
+
+.containerMarketplace {
+    min-height: 100vh;
+    padding: 10px 20px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    column-gap: 20px;
+
+    @include mixinBreakpoints(lgx){
+        flex-direction: column;
+        row-gap: 10px;
+    }
+
+    @include mixinBreakpoints(xs){
+        padding: 0;
+        row-gap: 0;
+    }
+
+    h2{
+        @include Poppins();
+        margin-bottom: 15px;
+    }
+
+    h3{
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+
+    .containerFilters, .containerShops{
+        box-shadow: 1px 1px 5px rgba(0,0,0,0.05);
+        background-color: $grayPanel;
+        border-radius: 15px;
+        padding: 15px 40px;
+        box-sizing: border-box;
+
+        @include mixinBreakpoints(xl){
+            padding: 20px;
+        }
+
+        @include mixinBreakpoints(xs){
+            border-radius: 0;
+        }
+    }
+
+    .containerFilters{
+        width: 25%;
+        overflow:hidden ;
+        position: relative;
+
+        @include mixinBreakpoints(xs){
+            margin-top: 80px;
+            background-color: $grayPanel;
+        }
+
+        @include mixinBreakpoints(lgx){
+            width: 100%;
+        }
+
+        .iconSettings{
+            display: none;
+
+            @include mixinStart(lgx){
+                position: absolute;
+                bottom: 20px;
+                z-index: 0;
+                left: -50px;
+                width: 350px;
+                height: 350px;
+                display: block;
+            }
+        }
+
+        .titleContainer{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            h2{
+                @include mixinBreakpoints(lgx){
+                    margin-bottom: 0;
+                }
+            }
+
+            svg{
+                font-size: 28px;
+            }
+            
+            .arrow{
+                display: none;
+
+                @include mixinBreakpoints(lgx){
+                    display: block;
+                }
+            }
+        }
+
+
+        .allFilters{
+            @include mixinBreakpoints(lg){
+                display: none;
+            }
+
+            .priceFilter{
+
+                .alignInputs{
+                    width: 100%;
+                    max-width: 350px;
+                    align-items: center;
+                    display: flex;
+                    column-gap: 4.5%;
+        
+                    .line{
+                        width: 5% ;
+                        background-color: $blackText;
+                        height: 2px;
+                        border-radius: 10px;
+                    }
+    
+                    > .inputWrapper {
+                        width: 43%;
+                        position: relative;
+    
+                        .min, .max{
+                            padding: 8px 10px 8px 10px;
+                            box-sizing: border-box;
+                            width: 100%;
+                            border-radius: 7px;
+                        }
+    
+                        svg{
+                            position: absolute;
+                            right: 5px;
+                            bottom: 10px;
+                        }
+                    }
+                }
+            }
+    
+            .advises{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                margin-top: 20px;
+    
+                .containerStars{
+                    display: flex;
+                    align-items: center;
+    
+                    button{
+                        background-color: transparent;
+                        display: flex;
+                        align-items: center;
+                        cursor: pointer;
+    
+                        .star{
+                            color: $grayLight;
+                            font-size: 20px;
+    
+                            &.colored{
+                                color: $orangeHoll;
+                            }
+                        }
+        
+                    }
+    
+                    span{
+                        margin-left: 5px;
+                        margin-top: 2px;
+                        font-size: 14px;
+                        user-select: none;
+                    }
+                }
+    
+                .cancelStars{
+                    background-color: transparent;
+                    text-decoration: underline;
+                    color: $grayText;
+                    margin-top: 5px;
+                    cursor: pointer;
+                }
+            }
+    
+            .tags{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                margin-top: 20px;
+                width: 100%;
+    
+                .alignTagsInput{
+                    width: 100%;
+                    max-width: 350px;
+                    position: relative;
+    
+                    input{
+                        padding: 12px 10px 12px 10px ;
+                        box-sizing: border-box;
+                        width: 100%;
+                        border-radius: 7px;
+                    }
+    
+                    button{
+                        background-color: $grayBackground;
+                        border-radius: 50%;
+                        padding: 7px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        position: absolute;
+                        right: 10px;
+                        bottom: 3px;
+                        cursor: pointer;
+                        
+                        &:hover{
+                            color: $whiteElement;
+    
+                            svg{
+                                color: $orangeHoll;
+                            }
+                        }
+    
+                        svg{
+                            font-size: 20px;
+                            @include transition(0.3s ease-in-out);
+                        }
+                    }
+                }
+    
+                .wrapperTags{
+                    display: flex;
+                    flex-direction: column;
+    
+                    .tag{
+                        display: flex;
+                        column-gap: 5px;
+    
+                        .deleteTag{
+                            background-color: transparent;
+                            text-decoration: underline;
+                            color: $grayText;
+                            margin-top: 5px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .containerShops{
+        width: 75%;
+        flex-grow: 1;
+
+        @include mixinBreakpoints(lgx){
+            width: 100%;
+            height: 100%;
+        }
+
+        @include mixinBreakpoints(xs){
+            margin-top: 80px;
+        }
+    }
+}

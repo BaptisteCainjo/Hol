@@ -1,0 +1,30 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+
+.BtnAddToCart {
+    color: white;
+    background-color: $orangeHoll;
+    padding: 8px 20px;
+    border-radius: 30px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    cursor: pointer;
+    white-space: nowrap;
+    width: fit-content;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: 0.2s ease-in-out;
+
+    svg{
+        color: $whiteElement;
+        font-size: 20px;
+        margin-bottom: 3px;
+    }
+
+    &:hover {
+        background-color: #DD5502;
+    }
+}

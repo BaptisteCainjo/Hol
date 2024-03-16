@@ -1,0 +1,73 @@
+@import "../../scss/colors";
+@import "../../scss/mixins.scss";
+
+
+.popupContainer {
+    z-index: 15;
+    position: relative;
+    min-width: 300px;
+
+    .popupBackground {
+        background-color: black;
+        width: 100%;
+        height: 100%;
+        opacity: 0.5;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .popupContent {
+        width: 460px;
+        top: 40%;
+        left: calc(50vw - 230px);
+        position: fixed;
+        background-color: $whiteElement;
+        padding: 30px;
+        border-radius: 10px;
+        box-sizing: border-box;
+
+        @include mixinBreakpoints(xs){
+            width: 300px;
+            left: calc(50vw - 150px);
+        }
+
+        .popupBtns {
+            margin-top: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+
+            .btnDialog {
+                margin-bottom: 10px;
+                cursor: pointer;
+                background-color: transparent;
+                padding: 10px 20px;
+                border-radius: 30px;
+                transition: 0.2s ease-in-out;
+                white-space: inherit;
+
+                &.dialogCancel {
+                    color: $whiteElement;
+                    background-color: #F84A4A;
+                    transition: 0.2s ease-in-out;
+
+                    &:hover {
+                        background-color: #d62525;
+                    }
+                }
+
+                &.dialogConfirm {
+                    background-color: $blackText;
+                    color: $whiteElement;
+
+                    &:hover {
+                        background-color: #3E3E3E;
+                    }
+                }
+            }
+        }
+    }
+}

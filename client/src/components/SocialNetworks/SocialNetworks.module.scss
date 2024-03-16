@@ -1,0 +1,37 @@
+@import "../../scss/colors";
+@import "../../scss/mixins";
+
+.containerSocialNetworks{
+    display: flex;
+    column-gap: 15px;
+    position: fixed;
+    bottom: 20px;
+    left: 30px;
+
+    .icon{
+        width: 40px;
+        border: 1px solid $blackText;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        stroke-width: 2px;
+        @include transition(0.3s ease-out);
+        background-color: $grayPanel;
+
+        &:hover{
+            border: 1px solid $orangeHoll;
+
+            svg{
+                color: $orangeHoll;
+            }
+        }
+
+        svg{
+            font-size: 20px;
+            color: $blackText;
+        }
+    }
+}

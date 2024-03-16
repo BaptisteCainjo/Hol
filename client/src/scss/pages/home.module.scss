@@ -1,0 +1,518 @@
+@import "../colors";
+@import "../mixins";
+
+.HomePageContainer {
+    // height: 150vh;
+    margin: 110px 30px;
+    background: url(../../assets/svg/backgrounds/bg-points.svg) center;
+    background-repeat: repeat-y;
+
+    .HomePageSection1 {
+        .HomePageBandeau {
+            background: url('../../assets/images/bandeau.webp')no-repeat center;
+            background-size: cover;
+            background-position: top;
+            height: 500px;
+            border-radius: 20px;
+            position: relative;
+
+            .HomePageBandeauContent {
+                z-index: 2;
+                padding: 30px 40px;
+                position: absolute;
+
+                .HomePageBandeauTitle {
+                    font-size: 50px;
+                    @include Playfair();
+                    color: $whiteElement;
+                    line-height: 60px;
+                }
+
+                .HomePageBandeauBtn {
+                    cursor: pointer;
+                    background-color: $whiteElement;
+                    padding: 12px 20px;
+                    border-radius: 30px;
+                    margin-top: 50px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-size: 15px;
+                    font-weight: 600;
+                    transition: 0.2s ease-in-out;
+                    color: $blackText;
+
+                    svg {
+                        width: 20px;
+                        height: 20px;
+                    }
+
+                    &:hover {
+                        background-color: $darkBlueHoll;
+                        color: $whiteElement;
+
+                        svg {
+                            animation: moveIcon 1.5s linear infinite;
+                        }
+                    }
+
+                    @keyframes moveIcon {
+                        0% {
+                            transform: translateX(0);
+                        }
+
+                        50% {
+                            transform: translateX(5px);
+                        }
+
+                        100% {
+                            transform: translateX(0);
+                        }
+                    }
+                }
+            }
+
+            &::after {
+                content: "";
+                background: linear-gradient(163deg, rgba(0, 37, 49, 1) 11%, rgba(0, 37, 49, 0.7372198879551821) 28%, rgba(0, 37, 49, 0) 56%, rgba(0, 37, 49, 0) 100%);
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 20px;
+            }
+
+        }
+
+        .HomePageScroll {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-weight: 600;
+            color: $blackText;
+
+            &::after,
+            &::before {
+                content: '';
+                width: 80px;
+                height: 0px;
+                border-bottom: 0.1px solid $grayText;
+            }
+
+            p {
+                text-align: center;
+            }
+        }
+    }
+
+    .HomePageSection2 {
+        margin: 80px 20px 0 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+
+        .HomePageDiscoverText {
+            position: relative;
+            margin-top: 80px;
+
+            .HomePageDiscoverTextContent {
+                display: flex;
+
+                .HomePageDiscoverTextLine {
+                    padding-right: 30px;
+                    border-left: 2px solid $grayLight;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 15%;
+                        border-left: 2px solid $orangeHoll;
+                    }
+                }
+
+                h3 {
+                    font-size: 2.2rem;
+                    @include Playfair();
+                    font-weight: bold;
+                    padding-bottom: 20px;
+
+                    svg {
+                        height: 40px;
+                        width: 40px;
+                    }
+                }
+
+                p {
+                    padding-bottom: 20px;
+                    font-size: 15px;
+                }
+            }
+
+            a {
+                width: fit-content;
+                margin-left: 30px;
+            }
+        }
+
+
+        .HomePageDiscoverImg {
+            display: flex;
+            align-items: end;
+            gap: 20px;
+            justify-content: end;
+
+            .HomePageDiscoverImg1 {
+                background-color: $whiteElement;
+                padding: 10px 15px;
+                border-radius: 20px;
+
+                img {
+                    margin-top: 40px;
+                    width: 180px;
+                }
+            }
+
+            .HomePageDiscoverImg2 {
+                background-color: $whiteElement;
+                padding: 10px 15px;
+                border-radius: 20px;
+
+                img {
+                    margin-top: 40px;
+                    width: 220px;
+                }
+            }
+        }
+
+        @include mixinBeetween(xl, xxGalacticScreen) {
+
+            .HomePageDiscoverText {
+
+                .HomePageDiscoverTextContent {
+                    h3 {
+                        font-size: 2.6rem;
+
+                        svg {
+                            height: 40px;
+                            width: 40px;
+                        }
+                    }
+
+                    p {
+                        font-size: 20px;
+                    }
+
+                    .HomePageDiscoverImg {
+
+                        .HomePageDiscoverImg1 {
+
+                            img {
+                                width: 230px;
+                            }
+                        }
+
+                        .HomePageDiscoverImg2 {
+
+                            img {
+                                width: 250px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @include mixinBreakpoints(lgx) {
+            grid-template-rows: repeat(2, auto);
+            grid-template-columns: 1fr;
+            margin: 80px 0 0 0;
+
+            .HomePageDiscoverText {
+                margin-top: 0;
+                margin-bottom: 30px;
+            }
+
+            .HomePageDiscoverImg {
+                align-items: start;
+                justify-content: center;
+
+                .HomePageDiscoverImg1 {
+                    background-color: $whiteElement;
+                    padding: 10px 15px;
+                    border-radius: 20px;
+                    width: 50%;
+
+                    img {
+                        margin-top: 40px;
+                        height: 300px;
+                        width: 100%;
+                        object-fit: cover;
+                        border-radius: 10px;
+                    }
+                }
+
+                .HomePageDiscoverImg2 {
+                    background-color: $whiteElement;
+                    padding: 10px 15px;
+                    border-radius: 20px;
+                    width: 50%;
+
+                    img {
+                        margin-top: 40px;
+                        height: 300px;
+                        width: 100%;
+                        object-fit: cover;
+                        border-radius: 10px;
+                    }
+                }
+            }
+        }
+
+        @include mixinBreakpoints(xs) {
+            .HomePageDiscoverImg {
+
+                .HomePageDiscoverImg1,
+                .HomePageDiscoverImg2 {
+                    img {
+                        height: 150px;
+                    }
+                }
+            }
+        }
+    }
+
+    .HomePageSection3 {
+        margin: 0px 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 80px;
+
+        .HomePageJoinText {
+            position: relative;
+            margin-top: 250px;
+
+            .HomePageJoinTextContent {
+                display: flex;
+
+                h3 {
+                    font-size: 2rem;
+                    @include Playfair();
+                    font-weight: bold;
+                    padding-bottom: 20px;
+
+                    svg {
+                        height: 40px;
+                        width: 40px;
+                    }
+                }
+
+                p {
+                    padding-bottom: 20px;
+                    font-size: 15px;
+                }
+            }
+
+            a {
+                width: fit-content;
+            }
+        }
+
+        .HomePageJoinImg {
+            background-color: $whiteElement;
+            padding: 50px 50px 0px 0;
+            border-radius: 20px;
+            width: 500px;
+
+            img {
+                margin-top: 40px;
+                width: 100%;
+                height: 100%;
+                border-radius: 0 10px 10px 10px;
+            }
+        }
+
+        @include mixinBeetween(xl, xxGalacticScreen) {
+            .HomePageJoinText {
+
+                .HomePageJoinTextContent {
+                    h3 {
+                        font-size: 2.2rem;
+
+                        svg {
+                            height: 40px;
+                            width: 40px;
+                        }
+                    }
+
+                    p {
+                        font-size: 20px;
+                    }
+
+                    .HomePageJoinImg {
+
+                        width: 600px;
+                    }
+                }
+            }
+        }
+
+        @include mixinBreakpoints(lgx) {
+            grid-template-rows: repeat(1, auto);
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-top: 20px;
+            margin: 20px 0 0 0;
+
+            .HomePageJoinImg {
+                border-radius: 20px;
+                width: 100%;
+                padding: 15px;
+                box-sizing: border-box;
+
+                img {
+                    height: 300px;
+                    width: 100%;
+                    object-fit: cover;
+                    border-radius: 10px;
+                }
+            }
+
+            .HomePageJoinText {
+                margin-top: 0;
+                margin-bottom: 30px;
+            }
+        }
+    }
+
+    .HomePageSection4 {
+        margin: 150px 0 30px;
+
+        .HomePageCarousselTop {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            justify-content: space-between;
+
+            @include mixinBreakpoints(md) {
+                flex-direction: column;
+                align-items: start;
+                gap: 20px;
+            }
+
+            h3 {
+                font-size: 1.8rem;
+                @include Playfair();
+                font-weight: bold;
+            }
+
+            .HomePageCarousselBtn {
+                cursor: pointer;
+                background-color: #fff;
+                padding: 12px 20px;
+                border-radius: 30px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 15px;
+                font-weight: 500;
+                transition: 0.2s ease-in-out;
+                color: #1D1D1D;
+
+                &:hover {
+                    background-color: $orangeHoll;
+                    color: #fff;
+                }
+            }
+        }
+
+        .HomePageCarousselListe {
+            padding: 0 40px;
+
+            @include mixinBreakpoints(md) {
+                padding: 0 10px;
+            }
+        }
+    }
+
+    .HomePageSection5 {
+        padding: 50px 0 80px 0;
+        position: relative;
+
+        &::after {
+            content: url('../../assets/svg/icons/fond-engagement.svg');
+            position: absolute;
+            bottom: -180px;
+            right: 0;
+            z-index: -1;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            @include Playfair();
+            font-weight: bold;
+            padding-bottom: 50px;
+        }
+
+        .HomePageSectionListe {
+            display: grid;
+            grid-template-columns: repeat(4, 300px);
+            justify-content: center;
+            gap: 30px;
+            margin: 0 50px;
+
+            @include mixinBreakpoints(xxl) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @include mixinBreakpoints(xs) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .HomePageSectionUnEngagement {
+                background-color: $whiteElement;
+                padding: 15px 40px 40px;
+                text-align: center;
+                border-radius: 20px;
+                position: relative;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 20px;
+                    bottom: 20px;
+                    border-right: solid 1px $grayLight;
+                    border-bottom: solid 1px $grayLight;
+                    border-radius: 0 0 10px 0;
+                }
+
+                img {
+                    width: 140px;
+                    height: 140px;
+                    object-fit: cover;
+                }
+
+                h5 {
+                    color: $orangeHoll;
+                    font-size: 1rem;
+                    margin: 20px 0;
+                }
+
+                p {
+                    font-size: 13px;
+                    color: $grayText;
+
+                    @include mixinBreakpoints(md) {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

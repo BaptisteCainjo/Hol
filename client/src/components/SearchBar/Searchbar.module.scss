@@ -1,0 +1,42 @@
+@import "../../scss/mixins.scss";
+@import "../../scss/colors.scss";
+
+
+.navbarMenuSearch {
+    position: relative;
+    display: block;
+
+    .navbarMenuSearchInput {
+        padding: 12px 40px 12px 20px;
+        background-color: $whiteElement;
+        border-radius: 50px;
+        font-size: 11px;
+        color: $blackText;
+        width: 250px;
+        border: 0.5px solid #F3F3F3;
+
+        @include mixinBreakpoints(xs){
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        &:focus-visible {
+            outline: none;
+        }
+    }
+
+    .navbarMenuSearchIcon {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $grayBackground;
+        border-radius: 50px;
+        right: 0;
+        top: 0;
+        margin-right: 10px;
+        padding: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}

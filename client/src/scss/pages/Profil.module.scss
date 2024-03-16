@@ -1,0 +1,11 @@
+.InterfaceProfil {
+    min-height: calc(100vh - 100px);
+    padding-top: 100px;
+    display: flex;
+
+    .InterfaceProfilNotConnected {
+        text-align: center;
+        width: 100%;
+        margin-top: 50px;
+    }
+}

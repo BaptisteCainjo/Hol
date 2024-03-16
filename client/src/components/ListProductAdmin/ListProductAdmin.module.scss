@@ -1,0 +1,208 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+
+.popupDelete {
+    z-index: 15;
+    position: relative;
+
+    .popupDeleteBackground {
+        background-color: black;
+        width: 100%;
+        height: 100%;
+        opacity: 0.5;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .popupDeleteContent {
+        top: 200px;
+        left: 50%;
+        position: absolute;
+        background-color: $whiteElement;
+        padding: 30px;
+        border-radius: 10px;
+
+        @include mixinBreakpoints(lgx) {
+            transform: translateX(-50%);
+        }
+
+
+        .popupDeleteBtns {
+            margin-top: 20px;
+            display: flex;
+            gap: 5px;
+
+            .btnDialog {
+                margin-bottom: 10px;
+                cursor: pointer;
+                background-color: transparent;
+                padding: 10px 20px;
+                border-radius: 30px;
+                transition: 0.2s ease-in-out;
+                white-space: inherit;
+
+                &.dialogCancel {
+                    color: #F84A4A;
+                    transition: 0.2s ease-in-out;
+
+                    &:hover {
+                        color: $whiteElement;
+                        background-color: #F84A4A;
+                    }
+                }
+
+                &.dialogConfirm {
+                    background-color: $blackText;
+                    color: $whiteElement;
+                }
+            }
+        }
+
+    }
+}
+
+
+
+#products {
+    margin: 30px 0 50px;
+
+    .productHeader {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        align-items: center;
+
+        .productAdd {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: $orangeHoll;
+            padding: 10px 15px;
+            color: $whiteElement;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s ease-in-out;
+
+            &:hover {
+                background-color: $orangeHollHover;
+            }
+        }
+    }
+
+    .productList {
+        table {
+            width: 100%;
+            border-spacing: 0;
+            border-collapse: separate;
+            border-radius: 10px;
+            overflow: hidden;
+            color: $blackText;
+            font-size: 14px;
+            border: 1px solid $grayLight;
+
+            .productListHead {
+                background-color: #F4f4f4;
+
+                th {
+                    padding: 10px;
+
+                    &.productListHeadTitle {
+                        padding-left: 25px;
+                        text-align: start;
+
+                        div {
+                            gap: 10px;
+                            display: flex;
+                            align-items: center;
+                        }
+                    }
+                }
+            }
+
+            .productListBody {
+                background-color: $whiteElement;
+
+                .lineProduct {
+
+                    &.active {
+                        background-color: $lightOrangeHoll;
+                    }
+
+                    th {
+                        padding: 10px;
+                        border-bottom: solid 1px #F4f4f4;
+
+                        &.productListBodyTitle {
+                            padding-left: 25px;
+                            text-align: start;
+
+                            @include mixinBreakpoints(xs) {
+                                padding-left: 10px;
+                            }
+
+                            div {
+                                gap: 10px;
+                                display: flex;
+                                align-items: center;
+                            }
+
+                            img {
+                                width: 65px;
+                                height: 50px;
+                                border-radius: 5px;
+                            }
+                        }
+
+                        &.productListBodyBtn {
+                            padding: 0;
+
+                            button {
+                                background-color: transparent;
+                                cursor: pointer;
+
+                                svg {
+                                    font-size: 18px;
+                                    padding: 8px;
+                                    background-color: #F4f4f4;
+                                    border-radius: 50px;
+                                    @include transition(0.3s ease-in-out);
+
+                                    &:hover {
+                                        color: $orangeHoll;
+                                    }
+                                }
+                            }
+
+
+                            &.trash>button>svg {
+                                color: $orangeHollHover;
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.checkbox {
+    border: 1px solid $blackText;
+    background: transparent;
+    border-radius: 3px;
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        font-size: 15px;
+        stroke-width: 2.5px;
+        color: $blackText;
+    }
+}

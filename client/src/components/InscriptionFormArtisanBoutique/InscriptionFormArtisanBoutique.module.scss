@@ -1,0 +1,30 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+
+.inscriptionForm {
+    display: flex;
+    flex-direction: column;
+
+    label {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin: 10px 0;
+        font-weight: 600;
+
+        input {
+            padding: 15px 20px;
+            margin-top: 5px;
+            border: none;
+            background-color: #F8F8F8;
+            border-radius: 7px;
+            font-size: 12px;
+        }
+
+        .inscriptionFormError {
+            color: red;
+            font-size: 12px;
+            font-weight: normal;
+        }
+    }
+}

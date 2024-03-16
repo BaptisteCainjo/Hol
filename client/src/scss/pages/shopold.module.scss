@@ -1,0 +1,379 @@
+@import '../colors';
+@import '../mixins';
+
+$marginSection: 3.125rem;
+$marginTitle: 1rem;
+
+
+.backBtn {
+    all: unset;
+    margin-top: 100px; // À supprimer après
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    color: #a3a3a3;
+    font-weight: 500;
+    font-size: 1.25rem;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+
+    &:hover {
+        border-bottom: 2px solid #a3a3a3;
+    }
+
+    svg {
+        margin-top: 2px;
+    }
+}
+
+.dashedSeparator {
+    border-top: 2px dashed $orangeHoll;
+    margin-top: $marginSection * 2;
+}
+
+.shopContainer {
+    max-width: 1440px;
+    height: auto;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 0 3.125rem;
+
+    @include mixinBreakpoints(md) {
+        padding: 0 1.5rem;
+    }
+
+    @include mixinBreakpoints(xs) {
+        padding: 0 1rem;
+    }
+    
+
+    .shop {
+        margin-top: 1rem;
+        min-height: 100vh;
+
+        h2 {
+            font-size: 1.375rem;
+            font-weight: 600;
+
+            @include mixinBreakpoints(sm) {
+                text-align: center;
+            }
+        }
+
+        #overview {
+            h1 {
+                font-size: 1.875rem;
+                font-weight: 600;
+
+                @include mixinBreakpoints(sm) {
+                    text-align: center;
+                }
+            }
+
+            .shopPhotos {
+                margin-top: $marginTitle;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                gap: 0.875rem;
+
+                @include mixinBreakpoints(sm) {
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-rows: repeat(3, 1fr);
+                }
+
+                img {
+                    width: 100%;
+                    border-radius: 0.75rem;
+                    aspect-ratio: 2/1.25;
+                    object-fit: cover;
+
+                    &:first-child {
+                        grid-column: span 2;
+                        grid-row: span 2;
+                    }
+
+                    @include mixinBreakpoints(sm) {
+                        &:first-child { grid-area: 1 / 1 / 3 / 3; }
+                        &:nth-child(2) { grid-area: 1 / 3 / 3 / 4; height: 100%; }
+                        &:nth-child(3) { grid-area: 3 / 1 / 4 / 2; }
+                        &:nth-child(4) { grid-area: 3 / 2 / 4 / 3; }
+                        &:last-child { grid-area: 3 / 3 / 4 / 4; }
+                    }
+                }
+            }
+
+            .shopDescription {
+                margin-top: 1.5rem;
+
+                p {
+                    margin-top: $marginTitle;
+                    color: $grayText;
+                    font-size: 1rem;
+                }
+            }
+        }
+
+        #products {
+            margin-top: $marginSection * 2;
+
+            @include mixinBreakpoints(sm) {
+                margin-top: $marginSection;
+            }
+
+            .productList {
+                margin-top: $marginTitle;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                justify-items: center;
+                gap: 1.25rem;
+
+                @include mixinBreakpoints(xxl) {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+
+                @include mixinBreakpoints(lgx) {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                .product {
+                    background-color: white;
+                    padding: 0.3rem;
+                    border-radius: 0.75rem;
+                    display: flex;
+                    flex-direction: column;
+                    min-height: 0;
+
+                    .productTop {
+                        img {
+                            border-radius: 0.75rem;
+                            width: 100%;
+                            object-fit: cover;
+                            aspect-ratio: 4/3;
+                        }
+                    }
+
+                    .productBottom {
+                        padding: 0.75rem 1rem 1rem;
+                        display: flex;
+                        flex-direction: column;
+                        height: 100%;
+
+                        .productPrice {
+                            font-size: 1.25rem;
+                            font-weight: 600;
+                            color: currentColor;
+                            width: fit-content;
+
+                            &:hover {
+                                color: $orangeHoll;
+                            }
+                        }
+
+                        .productName {
+                            margin-top: 0.75rem;
+                            font-size: 1rem;
+                            font-weight: 500;
+                            color: currentColor;
+                            width: fit-content;
+
+                            &:hover {
+                                color: $orangeHoll;
+                            }
+                        }
+
+                        .productActions {
+                            margin-top: auto;
+                            padding-top: 1.875rem;
+                            display: flex;
+                            gap: 0.875rem;
+
+                            @include mixinBreakpoints(lgx) {
+                                flex-direction: column;
+                            }
+
+                            .discoverBtn {
+                                color: white;
+                                background-color: #303030;
+                                padding: 0.625rem 1.5rem;
+                                border-radius: 9999px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                font-size: 0.75rem;
+                                font-weight: 500;
+
+                                &:hover {
+                                    background-color: #202020;
+                                }
+                            }
+
+                            .addToCartBtn {
+                                color: white;
+                                background-color: $orangeHoll;
+                                padding: 0.625rem 0.875rem;
+                                border-radius: 9999px;
+                                border: none;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                gap: 0.625rem;
+                                cursor: pointer;
+                                white-space: nowrap;
+                                font-size: 0.75rem;
+                                font-weight: 500;
+
+                                svg {
+                                    height: 1rem;
+                                    width: 1rem;
+
+                                    path {
+                                        stroke: currentColor;
+                                    }
+                                }
+
+                                &:hover {
+                                    background-color: #DD5502;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        #contact {
+            margin-top: $marginSection;
+            display: flex;
+            gap: 6.25rem;
+
+            @include mixinBreakpoints(lgx) {
+                gap: 3rem;
+            }
+
+            @include mixinBreakpoints(sm) {
+                flex-direction: column;
+            }
+
+            .location {
+                width: 50%;
+
+                @include mixinBreakpoints(sm) {
+                    width: 100%;
+                }
+
+                .map {
+                    margin-top: $marginTitle;
+                    border-radius: 0.75rem;
+                    width: 100%;
+
+                    img {
+                        object-fit: cover;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 0.75rem;
+                    }
+                }
+            }
+
+            .artisan {
+                width: 50%;
+
+                @include mixinBreakpoints(sm) {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .artisanProfile {
+                    margin-top: $marginTitle;
+                    display: flex;
+                    align-items: center;
+                    gap: 1.875rem;
+
+                    .artisanAvatar {
+                        img {
+                            border-radius: 9999px;
+                            object-fit: cover;
+                            width: 6.75rem;
+                            height: 6.75rem;
+                        }
+                    }
+
+                    .artisanInfos {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.25rem;
+
+                        .artisanName {
+                            text-transform: uppercase;
+                            font-weight: 600;
+                            font-size: 1.125rem;
+                        }
+
+                        .artisanSince {
+                            color: $grayText;
+                            font-size: 0.9rem;
+                        }
+                    }
+                }
+
+                .contactBtn {
+                    margin-top: 2.5rem;
+                    background-color: white;
+                    border-radius: 9999px;
+                    padding: 0.625rem 1.5rem;
+                    color: black;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 0.75rem;
+                    width: fit-content;
+
+                    &:hover {
+                        background-color: black;
+                        color: white;
+                    }
+                }
+
+                .artisanContact {
+                    margin-top: 1.875rem;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.75rem;
+
+                    a {
+                        color: #303030;
+                        display: flex;
+                        align-items: center;
+                        gap: 0.75rem;
+                        width: fit-content;
+
+                        &:hover {
+                            color: $orangeHoll;
+                        }
+                    }
+                }
+
+                .artisanSocials {
+                    margin-top: 3rem;
+                    display: flex;
+                    gap: 2.5rem;
+
+                    svg {
+                        color: black;
+                        width: 2rem;
+                        height: 2rem;
+                    }
+                }
+            }
+        }
+
+        #reviews {
+            margin-top: $marginSection;
+        }
+    }
+}

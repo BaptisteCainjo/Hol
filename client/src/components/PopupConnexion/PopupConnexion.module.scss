@@ -1,0 +1,228 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+
+.marketplace {
+    .Popupbackground {
+        position: fixed;
+    }
+
+    .PopupContainer {
+        padding-top: 20px;
+
+        @include mixinBreakpoints(xs) {
+            padding-top: 120px;
+        }
+    }
+}
+
+.Popupbackground {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background-color: #0000005c;
+    backdrop-filter: blur(1.5px);
+    animation: discover 0.5s;
+
+}
+
+@keyframes discover {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.PopupContainer {
+    width: 400px;
+    z-index: 40;
+    padding-top: 120px;
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-right: 30px;
+
+    @include mixinBreakpoints(xs) {
+        width: 100%;
+        padding: 120px 20px 0 20px;
+        box-sizing: border-box;
+    }
+
+    @include mixinBreakpoints(xss) {
+        width: 100%;
+        padding: 120px 15px 0 15px;
+        box-sizing: border-box;
+    }
+
+    .PopupConnect {
+        overflow-y: auto;
+        height: 100%;
+        max-height: calc(100vh - 140px);
+        box-sizing: border-box;
+    }
+
+    .PopupConnect,
+    .PopupRegister {
+        position: relative;
+        background-color: $whiteElement;
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: rgba(100, 100, 111, 0.05) 0px 7px 29px 0px;
+        box-shadow: 100px 50px 400px rgba($color: #000000, $alpha: 0.15);
+
+        @include mixinBreakpoints(md) {
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .PopupConnectTop {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .PopupConnectClose {
+                // position: absolute;
+                right: 0;
+                top: 0;
+                padding: 10px;
+                cursor: pointer;
+                font-size: 25px;
+
+
+                @include mixinBreakpoints(lgx) {
+                    font-size: 24px;
+                }
+
+                @include mixinBreakpoints(md) {
+                    font-size: 23px;
+                }
+            }
+
+            .PopupConnectTitle,
+            .PopupRegisterTitle {
+                font-size: 20px;
+                // font-family: poppins-medium;
+                margin-bottom: 3px;
+
+                @include mixinBreakpoints(lgx) {
+                    font-size: 19px;
+                }
+
+                @include mixinBreakpoints(md) {
+                    font-size: 18px;
+                }
+            }
+        }
+
+
+        // Inscription
+
+        .PopupConnectInscriptionParent {
+            overflow: auto;
+
+            .inscriptionType {
+                margin-top: 15px;
+
+                .inscriptionTypeChoice {
+                    margin-top: 10px;
+                    display: flex;
+                    justify-content: space-around;
+
+
+                    .inscriptionTypeClient,
+                    .inscriptionTypeArtisan {
+                        cursor: pointer;
+                        width: 150px;
+                        height: 150px;
+                        cursor: pointer;
+                        background-color: #1E1E1E;
+                        border-radius: 10px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: flex-end;
+                        position: relative;
+
+                        &::before {
+                            content: '';
+                            width: 100%;
+                            height: 100%;
+                            position: absolute;
+                            border-radius: 10px;
+
+                            background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6) 20%, rgba(0, 0, 0, 0.02) 100%);
+                            background-size: 100% 200%;
+                            background-position: bottom;
+                            transition: 0.2s background-position ease-in-out;
+                        }
+
+                        &:hover {
+                            &::before {
+                                background-position: top;
+                            }
+                        }
+
+                        label {
+                            z-index: 5;
+                            color: $whiteElement;
+                            text-align: center;
+                            margin-bottom: 10px;
+                        }
+                    }
+
+                    .inscriptionTypeArtisan {
+                        background: url('../../assets/images/artisan.webp') center no-repeat;
+                        background-size: cover;
+                    }
+
+                    .inscriptionTypeClient {
+                        background: url('../../assets/images/client.webp') center no-repeat;
+                        background-size: cover;
+                    }
+                }
+
+            }
+        }
+
+
+        // Connexion
+        .PopupConnectForm {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+
+            .PopupConnectLabel {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                margin: 7px 0;
+                font-weight: 600;
+
+                .PopupConnectInput {
+                    padding: 15px 20px;
+                    margin-top: 5px;
+                    border: none;
+                    background-color: $grayBackground;
+                    border-radius: 7px;
+                    font-size: 12px;
+                }
+            }
+
+            .PopupConnectError {
+                color: red;
+                font-size: 13px;
+            }
+        }
+    }
+}

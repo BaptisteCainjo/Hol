@@ -1,0 +1,166 @@
+@import "../../scss/colors";
+@import "../../scss/mixins";
+
+.containerThumbnail{
+    height: 175px;
+    border-radius: 15px;
+    background-color: #fff;
+    display: flex;
+    column-gap: 5px;
+    box-sizing: border-box;
+    padding: 5px;
+    margin: 0 5px ;
+    position: relative;
+    @include transition(0.3s ease-out);
+
+    &:hover{
+        transform: translateY(-3px);
+
+        .containerImage .shadow{
+            background: linear-gradient( transparent 0%, rgba(0,0,0,1) 100%);
+        }
+
+        .more{
+            color: $orangeHoll;
+        }
+    }
+
+    @include mixinBreakpoints(xBigScreen){
+        height: 200px;
+    }
+
+    @include mixinBreakpoints(xxxl){
+        height: 200px;
+    }
+
+    @include mixinBreakpoints(xxl){
+        height: 200px;
+    }
+
+    @include mixinBreakpoints(xs){
+        margin: 0;
+    }
+
+    @include mixinBreakpoints(xs){
+        height: 170px;
+    }
+
+    .containerImage{
+        width: calc(100% - 5px - 50px);
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        background-size: cover;
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+
+        @include mixinBreakpoints(xxxl){
+            width: calc(100% - 5px - 50px);
+        }
+
+        @include mixinBreakpoints(sm){
+            width: calc(100% - 5px - 100px);
+        }
+
+
+        @include mixinBreakpoints(xss){
+            width: 100%;
+        }
+
+        .shadow{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: linear-gradient( transparent 0%, rgba(0,0,0,0.7) 100%);
+            top: 0;
+            left: 0;
+            @include transition(0.3s ease-out);
+        }
+
+        .name{
+            position: absolute;
+            bottom: 20px;
+            max-width: 85%;
+            left: 10px;
+            z-index: 2;
+            display: flex;
+            column-gap: 3px;
+            align-items: center;
+
+            span{
+                font-size: 12px;
+                @include Poppins();
+                font-weight: 300;
+                color: #fff;
+            }
+
+            svg{
+                font-size: 15px;
+                color: #fff;
+            }
+        }
+    }
+
+    .containerProducts{
+        display: flex;
+        row-gap: 5px;
+        flex-direction: column;
+        overflow: hidden;
+
+        @include mixinBreakpoints(xss){
+            display: none;
+        }
+
+        .product{
+            width: 50px;
+            height: 70px;
+            background-image: url("../../assets/images/product.webp");
+            background-size: cover;
+            border-radius: 5px;
+
+            @include mixinBreakpoints(xxl){
+                width: 100px;
+            }
+
+            @include mixinBreakpoints(lg){
+                width: 50px;
+            }
+
+            @include mixinBreakpoints(sm){
+                width: 100px;
+            }
+        }
+    }
+
+    .thumbnail{
+        position: absolute;
+        z-index: 2;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+    }
+
+    .more{
+        display: flex;
+        align-items: center;
+        column-gap: 2px;
+        z-index: 3;
+        position: absolute;
+        bottom: 7px;
+        right: 7px;
+        font-weight: 700;
+        font-size: 12px;
+        @include transition(0.2s ease-out);
+
+        svg{
+            font-size: 14px;
+        }
+    }
+
+    .thumbnail, .more{
+        @include mixinBreakpoints(xss){
+            display: none;
+        }
+    }
+}

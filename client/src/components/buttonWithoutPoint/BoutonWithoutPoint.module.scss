@@ -1,0 +1,50 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+
+.BtnNoPoint {
+    display: flex;
+    position: relative;
+    place-self: self-start;
+    padding: 10px 20px;
+    align-items: center;
+    gap: 1em;
+    overflow: hidden;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    color: $blackText;
+    transition: background cubic-bezier(.35, 0, 0, 1) .2s;
+    border: solid 1px $blackText;
+    background-color: transparent;
+    cursor: pointer;
+
+    .BtnNoPointDot {
+        display: inline-block;
+        position: relative;
+        width: .5em;
+        height: .5em;
+        background: $blackText;
+        border-radius: 100px;
+        z-index: 1;
+        transition: background cubic-bezier(.35, 0, 0, 1) .5s, transform cubic-bezier(.35, 0, 0, 1) .4s;
+
+    }
+
+    .BtnNoPointTexte {
+        font-weight: 600;
+        position: relative;
+        z-index: 1;
+        transition: color cubic-bezier(.35, 0, 0, 1) .5s, transform cubic-bezier(.35, 0, 0, 1) .4s;
+    }
+
+    &:hover {
+        background-color: $blackText;
+        .BtnNoPointDot {
+            background: $whiteElement;
+        }
+
+        .BtnNoPointTexte {
+            color: $whiteElement;
+        }
+    }
+}

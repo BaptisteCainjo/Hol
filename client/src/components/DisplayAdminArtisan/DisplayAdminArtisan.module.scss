@@ -1,0 +1,14 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+
+.displayAdmin {
+    box-sizing: border-box;
+    padding: 0 40px;
+    width: 100%;
+    min-height: calc(100vh - 100px);
+
+    @include mixinBreakpoints(xs) {
+        padding-right: 0;
+        padding-left: 10px;
+    }
+}

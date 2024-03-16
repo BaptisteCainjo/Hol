@@ -1,0 +1,43 @@
+@import "../colors";
+@import "../mixins";
+
+.not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+
+    .title {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .description {
+        font-size: 1.5rem;
+    }
+
+    .productBtnBack {
+        margin-top: 10px;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: $grayText;
+        border-radius: 30px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: 0.2s ease-in-out;
+
+        &:hover {
+            color: $blackText;
+        }
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}

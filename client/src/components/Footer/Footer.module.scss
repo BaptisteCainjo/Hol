@@ -1,0 +1,130 @@
+@import "../../scss/colors";
+@import "../../scss/mixins";
+
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    background-color: $grayBackground;
+    width: 100%;
+    row-gap: 70px;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.05);
+
+    @include mixinBreakpoints(lg){
+        row-gap: 30px;
+    }
+
+
+    .containerInfos, .others{
+        width: 100%;
+        padding: 30px 200px;
+        box-sizing: border-box;
+
+        @include mixinBreakpoints(xxxl) {
+            padding: 30px 150px;
+        }
+    
+        @include mixinBreakpoints(xxl) {
+            padding: 30px 120px;
+        }
+    
+        @include mixinBreakpoints(xl) {
+            padding: 30px 80px;
+        }
+    }
+
+    .containerInfos {
+        display: flex;
+        flex-direction: column;
+        row-gap: 30px;
+
+        .logoContainer{
+            padding: 20px 0;
+            width: fit-content;
+
+            .logo{
+                width: 130px;
+            }
+        }
+
+        .company {
+            font-size: 25px;
+        }
+
+        .content {
+            display: flex;
+            column-gap: 30px;
+            justify-content: space-between;
+
+            @include mixinBreakpoints(md){
+                display: grid;
+                row-gap: 30px;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            @include mixinBreakpoints(sm){
+                grid-template-columns: 1fr;
+            }
+
+            .colonne{
+                display: flex;
+                flex-direction: column;
+                row-gap: 10px;
+                max-width: 300px;
+
+                .infos{
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                span a, span{
+                    color: $grayText;
+                    font-size: 14px;
+                }
+
+                .spanHovered a{
+                    @include transition(0.3s ease-out);
+                    &:hover{
+                        color: $orangeHoll;
+                    }
+                }
+
+                > span:first-child, > p{
+                    margin-bottom: 10px;
+                    font-size: 15px;
+                    font-weight: 600;
+                    color: $blackText
+                }
+            }
+        }
+    }
+
+    .others {
+        box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.05);
+        display: flex;
+        column-gap: 30px;
+        color: $blackText;
+
+        @include mixinBreakpoints(lg){
+            &:nth-child(2){
+                flex-wrap: wrap;
+            }
+        }
+
+        span:first-child{
+            font-size: 15px;
+            color: $grayText;
+        }
+
+        .spanHovered a{
+            color: $grayText;
+            font-weight: 500;
+            font-size: 15px;
+
+            @include transition(0.3s ease-out);
+            &:hover{
+                color: $orangeHoll;
+            }
+        }
+    }
+}

@@ -1,0 +1,67 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+
+
+.navbarMenuResponsiveContainer {
+    background-color: $whiteElement;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 0 40px;
+    animation: slideDown cubic-bezier(.4, 0, 0, 1) .2s;
+    z-index: 20;
+    display: none;
+
+    @include mixinBreakpoints(xxl) {
+        padding: 0 30px;
+    }
+
+    @include mixinBreakpoints(lgx) {
+        padding: 0 20px;
+        display: block;
+    }
+    
+
+    div {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin: 20px 0;
+        position: relative;
+
+        &:hover {
+            .navbarMenuResponsiveArrow {
+                opacity: 1;
+                transform: translateX(10px);
+            }
+        }
+
+        .navbarMenuResponsiveArrow {
+            opacity: 0;
+            margin: 0;
+            transition: transform cubic-bezier(.4, 0, 0, 1) .4s;
+        }
+    }
+
+    .navbarMenuResponsiveTitleContainer{
+
+        .navbarMenuTitle{
+            font-size: 20px;
+            @include Poppins();
+            font-weight: 700;
+        }
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
